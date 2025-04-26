@@ -11,15 +11,6 @@ public class Inventory
         currentMonth = 1; // January is the first month 
     }
 
-    public Item getItem(int index) //Allows you to get the item using it's index in list items 
-    {
-        if (index >= 0 && index < items.size())
-        {
-            return items.get(index);
-        }
-        return null;
-    }
-
     public ArrayList<Item> getItems() 
     {
         return items; //Returns the array list of items
@@ -47,10 +38,36 @@ public class Inventory
         return "No Item Matches";
     }
 
-    public Item checkIndex(int indexid)
+    public Item getItem(int indexid)
     {
         return items.get(indexid);
     }
 
+    public int getCurrentmonth()
+    {
+        return currentMonth;
+    }
 
+    public void updateCurrentmonth(int amount)
+    {
+        currentMonth = currentMonth + amount;
+    }
+
+    public ArrayList<ArrayList<String>> displaytable;
+    {
+        ArrayList<ArrayList<String>> displaytable = new ArrayList<ArrayList<String>> displaytable 
+        for (int i = 0; i < items.size(); i++)
+        {
+            Item item = items.get(i);
+            ArrayList<String> row = new ArrayList<>();
+            row.add("Name: " + item.getName());
+            row.add("Price: " + item.getPrice());
+            row.add("Stock: " + item.getStock());
+            row.add("Sales: " + item.getSales());
+            row.add("Index: " + i);
+            row.add("Location: " +  item.getLocationinstore());
+            displaytable.add(row);
+        }
+        return displaytable;
+    }
 }

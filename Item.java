@@ -44,5 +44,4 @@ class Item
     {
         sales++; // Increases the sales of the item by one 
     }
-
 }
