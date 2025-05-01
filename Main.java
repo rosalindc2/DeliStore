@@ -7,7 +7,7 @@ public class Main
         System.out.println(inventory.getItems()); //Testing out .addItem
         inventory.removeStock("Hot Cheetos", 3);
         System.out.println(inventory.getItems()); //Testing out .removeStock 
-        System.out.println(inventory.checkinstock("Hot Cheetos", 1)); //Checks if there are 1 bag of 
+        System.out.println(inventory.checkStock("Hot Cheetos", 1)); //Checks if there are 1 bag of 
 
         Customer customer = new Customer(inventory);
         customer.additemtocart("Hot Cheetos", 2);
@@ -15,6 +15,8 @@ public class Main
         
         inventory.subtractItem("Hot Cheetos");
         System.out.println(inventory.getItems()); //Testing out .subtractItem
+
+        
     }
 
 }

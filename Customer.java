@@ -82,7 +82,7 @@ public class Customer
             if (cart.get(i).getName().equals(name))
             {
                 Customer.CartItem cartitem = cart.get(i);
-                if (inventory.checkinstock(name, Amountadded))
+                if (inventory.checkStock(name, Amountadded))
                 {
                     for (int s = 0; s < Amountadded; s++)
                     {

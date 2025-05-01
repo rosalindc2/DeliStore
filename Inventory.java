@@ -45,14 +45,14 @@ public class Inventory
         } 
     }
 
-    public void addStock(String name, int qtysubtract)
+    public void addStock(String name, int qtyadd)
     {
         for (int i = 0; i < items.size(); i++)
         {
             if (items.get(i).getName().equals(name))
             {
                 Item item = items.get(i);
-                for (int s =0; s < qtysubtract; s++)
+                for (int s =0; s < qtyadd; s++)
                 {
                     item.addStock();
                 }
@@ -60,7 +60,7 @@ public class Inventory
         } 
     }
 
-      public boolean checkinstock(String name, int amount)
+      public boolean checkStock(String name, int amount)
     {
         for(int i = 0; i < items.size(); i++)
         {
@@ -76,7 +76,18 @@ public class Inventory
         }
         return false;
     } 
-
+    public String getLocation(String name)
+    {
+        for(int i = 0; i < items.size(); i++)
+        {
+            Item item = items.get(i);
+            if(item.getName().equals(name))
+            {
+               return item.getLocationinstore();
+            }
+        }
+        return null;
+    }
 
     public String getIndexid(String name) // Gets the index of the item, I use it because subtract item moves down the indexes by 1. 
     {                                     // Also, I use the index as sort of a changing identifier/ shortcut. 
@@ -92,7 +103,6 @@ public class Inventory
     {
         return items.get(indexid); 
     }
-
     public ArrayList<ArrayList<String>> getdisplaytable() // A more completed overview of everything in a 2D arraylist. 
     {
         ArrayList<ArrayList<String>> displaytable = new ArrayList<>();
