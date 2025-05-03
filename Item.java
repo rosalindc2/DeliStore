@@ -37,6 +37,7 @@ public class Item
 
     public void addStock() // We don't want it to return anything, void method 
     {
+        qty ++;
     }
 
     public void removeStock() 

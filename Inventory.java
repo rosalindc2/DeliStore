@@ -2,7 +2,6 @@ import java.util.ArrayList;
 public class Inventory
 {
     private ArrayList<Item> items;
-
     public Inventory()
     {
         items = new ArrayList<>(); 
@@ -76,6 +75,22 @@ public class Inventory
         }
         return false;
     } 
+
+    public double calculatePrice(String name, int amount)
+    {
+        for(int i = 0; i < items.size(); i++)
+        {
+            Item item = items.get(i);
+           if(item.getName().equals(name))
+           {
+                double price = item.getPrice();
+                return price*amount;
+           }
+        }
+        return 0.00;
+    } 
+
+
     public String getLocation(String name)
     {
         for(int i = 0; i < items.size(); i++)
@@ -89,7 +104,8 @@ public class Inventory
         return null;
     }
 
-    public String getIndexid(String name) // Gets the index of the item, I use it because subtract item moves down the indexes by 1. 
+    public String getIndexid(String name) // Gets the index of the item, I use it because subtract item moves
+    // down the indexes by 1. 
     {                                     // Also, I use the index as sort of a changing identifier/ shortcut. 
         for (int i = 0; i < items.size(); i++) // Traverses through the array to find at what index name is at. 
         {
