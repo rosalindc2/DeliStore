@@ -24,18 +24,14 @@ public class Customer
                 int qty = item.getStock(); 
                 if (amount <= qty) // Checks if the amount you want to add is more than avaliable stock. 
                 {
-
                     Customer.CartItem newCartItem = new CartItem(name, amount);
                     cart.add(newCartItem); // If so, it adds it to your cart. 
+                    System.out.println("Added " + amount + " " + name + " to cart.");
                 } else 
                 {
-                    System.out.print("We currently don't have " + amount + " " + name + ".");
+                    System.out.println("We currently don't have " + amount + " " + name + ".");
                     System.out.println(" However, we have " + qty + " currently in stock.");
                 }
-            }
-            else
-            {
-                System.out.print("This product is not available in our store.");
             }
         }
     }
@@ -49,7 +45,7 @@ public class Customer
             }
     }
 
-    public void subtractAmount(String name, int Amountsubtracted) 
+    public void subtractAmount(String name, int Amountsubtracted) //**
     {
         for (int i = 0; i < cart.size(); i++) 
         {
@@ -87,6 +83,10 @@ public class Customer
                     {
                         cartitem.addAmount(); // This adds one to amount in the cart item. 
                     }
+                }
+                else
+                {
+                    System.out.println("We don't have that amount in stock. Please choose another amount.");
                 }
             }
         } 

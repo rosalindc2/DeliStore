@@ -2,14 +2,12 @@ import java.util.ArrayList;
  public class Employee 
 {
     private int currentMonth = 1;
-    private int id;
     private boolean valid;
     private Inventory inventory;
 
     public Employee(int id, Inventory inventory)
     {
         this.inventory = inventory;
-        this.id = id;
     }
 
     public boolean checkvalidid(int id)
@@ -32,12 +30,21 @@ import java.util.ArrayList;
     return 0;
     }
 
+
     public void updateCurrentmonth(int amount) // Used later to determine sale rate per month, 
     //allows for this info to be updated. 
     {
         if (valid)
         {
             currentMonth = currentMonth + amount;
+            if (currentMonth <= 0)
+            {
+                System.out.println("Invalid Month");
+            }
+            if (currentMonth > 12)
+            {
+                currentMonth = 1;
+            }
         }
     }
     
